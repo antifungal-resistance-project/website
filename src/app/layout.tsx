@@ -13,10 +13,25 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const description =
+  "A nonprofit researching the biology of fungal disease and building open, rigorously validated science to keep antifungal medicines working.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://antifungalresistance.vercel.app"),
   title: `${org.name} — ${org.mission}`,
-  description:
-    "A nonprofit researching the biology of fungal disease and building open, rigorously validated science to keep antifungal medicines working.",
+  description,
+  openGraph: {
+    type: "website",
+    title: `${org.name} — ${org.mission}`,
+    description,
+    siteName: org.name,
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${org.name} — ${org.mission}`,
+    description,
+  },
 };
 
 export default function RootLayout({
