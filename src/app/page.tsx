@@ -221,7 +221,7 @@ export default function Home() {
 
             <Reveal delay={0.1}>
               <a
-                href={org.github}
+                href={project.repo}
                 className="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-iron transition-colors hover:text-fg"
               >
                 Read the {project.name} code and every run write-up →

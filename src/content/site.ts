@@ -11,17 +11,18 @@ export const org = {
   name: "The Antifungal Resistance Project",
   short: "ARP", // compact mark for the nav
   legal: "The Antifungal Resistance Project",
-  domain: "antifungalresistance.org", // TODO(you): register / confirm the domain
+  domain: "antifungalresistance.org", // registration in progress
   mission: "For a world without antifungal resistance.",
   tagline: "A nonprofit for fungal research and open antifungal science.",
-  email: "hello@antifungalresistance.org", // TODO(you): confirm the real inbox
-  github: "https://github.com/", // TODO(you): repo / org URL
+  email: "hello@antifungalresistance.org",
+  github: "https://github.com/antifungal-resistance-project", // the org
 };
 
 // The tool, referenced as a project throughout.
 export const project = {
   name: "OpenAFR",
   blurb: "our open, self-validating antifungal screening pipeline",
+  repo: "https://github.com/antifungal-resistance-project/OpenAFR",
 };
 
 export const hero = {
