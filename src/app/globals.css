@@ -89,6 +89,43 @@ html[data-theme="dark"] .theme-icon-moon {
   );
 }
 
+/* Prose column for standalone document pages (privacy, terms). */
+.doc {
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+.doc h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-fg);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.doc p {
+  margin-bottom: 1.1rem;
+}
+.doc ul {
+  margin: 0 0 1.1rem 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+.doc li {
+  margin-bottom: 0.5rem;
+}
+.doc a {
+  color: var(--color-iron);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.doc a:hover {
+  color: var(--color-fg);
+}
+.doc strong {
+  color: var(--color-fg);
+  font-weight: 600;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

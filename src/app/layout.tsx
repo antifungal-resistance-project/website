@@ -35,9 +35,11 @@ export const metadata: Metadata = {
 };
 
 // Runs synchronously during HTML parsing, before first paint, so the saved
-// (or system) theme is applied with no flash of the wrong palette. Default is
-// light; a stored preference or the OS setting can switch it to dark.
-const themeScript = `(function(){try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();`;
+// theme is applied with no flash of the wrong palette. Light is the default:
+// dark is opt-in only, remembered once the reader chooses it. We intentionally
+// do NOT follow the OS prefers-color-scheme — the site should read as light for
+// a first-time visitor regardless of their system setting.
+const themeScript = `(function(){try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t="light";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();`;
 
 export default function RootLayout({
   children,
