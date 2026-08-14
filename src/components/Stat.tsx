@@ -10,11 +10,12 @@ import { useEffect, useRef, useState } from "react";
 type Kind = "decimal" | "p" | "int";
 
 function format(value: number, kind: Kind, suffix?: string) {
-  let body: string;
-  if (kind === "p") body = value.toFixed(4);
-  else if (kind === "int") body = Math.round(value).toLocaleString();
-  else body = value.toFixed(value < 10 ? 3 : 2);
-  return (kind === "p" ? "p = " + body : body) + (suffix ?? "");
+  if (kind === "p") return "p = " + value.toFixed(4) + (suffix ?? "");
+  if (kind === "int")
+    return Math.round(value).toLocaleString() + (suffix ?? "");
+  // Trim trailing zeros so ratios read "5.6×" while AUC stays "0.794".
+  const body = value.toFixed(value < 10 ? 3 : 2).replace(/\.?0+$/, "");
+  return body + (suffix ?? "");
 }
 
 /**
@@ -64,7 +65,7 @@ export function Stat({
   return (
     <div
       ref={ref}
-      className="rounded-xl border border-border bg-surface/60 p-6 backdrop-blur"
+      className="rounded-xl border border-border bg-surface p-6"
     >
       <div
         className={`font-mono text-4xl font-semibold tabular-nums tracking-tight sm:text-5xl ${toneClass}`}

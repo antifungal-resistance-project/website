@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { org } from "@/content/site";
 import { Logo } from "@/components/Logo";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const links = [
   { href: "#mission", label: "Mission" },
@@ -50,12 +51,15 @@ export function Nav() {
             </a>
           ))}
         </div>
-        <a
-          href="#contact"
-          className="rounded-full border border-border px-4 py-1.5 text-sm text-fg transition-colors hover:border-iron hover:text-iron"
-        >
-          Get involved
-        </a>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <a
+            href="#contact"
+            className="rounded-full border border-border px-4 py-1.5 text-sm text-fg transition-colors hover:border-iron hover:text-iron"
+          >
+            Get involved
+          </a>
+        </div>
       </nav>
     </header>
   );

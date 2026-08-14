@@ -34,6 +34,11 @@ export const metadata: Metadata = {
   },
 };
 
+// Runs synchronously during HTML parsing, before first paint, so the saved
+// (or system) theme is applied with no flash of the wrong palette. Default is
+// light; a stored preference or the OS setting can switch it to dark.
+const themeScript = `(function(){try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -42,9 +47,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-theme="light"
       data-scroll-behavior="smooth"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>{children}</body>
     </html>
   );

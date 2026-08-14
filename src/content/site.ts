@@ -90,7 +90,7 @@ export const projectSection = {
     "Our first open pipeline puts the approach to the test. On a held-out challenge frozen with a SHA-256 hash before any data was generated, it was asked to find 7 azole antifungals it had never seen, hidden among 348 look-alike decoys.",
   stats: [
     { label: "AUC — iron-approach distance", value: 0.794, kind: "decimal" as const, tone: "pass" as const },
-    { label: "Enrichment @ 1%", value: 12.68, suffix: "×", kind: "decimal" as const, tone: "pass" as const },
+    { label: "Enrichment in the top 5% shortlist", value: 5.6, suffix: "×", kind: "decimal" as const, tone: "pass" as const },
     { label: "Permutation-test p", value: 0.0028, kind: "p" as const, tone: "pass" as const },
     { label: "AUC — docking affinity score", value: 0.471, kind: "decimal" as const, tone: "fail" as const },
   ],

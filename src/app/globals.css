@@ -1,11 +1,38 @@
 @import "tailwindcss";
 
 /*
-  OpenAFR foundation site — design tokens.
-  Deep, quiet, scientific. Iron-amber is the signature accent (heme iron);
-  cyan reads as "nitrogen / candidate molecule"; emerald means "validated / pass".
+  The Antifungal Resistance Project — design tokens.
+
+  Light is the default. Dark is opt-in via [data-theme="dark"] on <html>,
+  toggled in the nav and persisted to localStorage; an inline script in the
+  root layout applies the saved (or system) preference before first paint.
+
+  Iron-amber is the signature accent (heme iron); cyan reads as the candidate
+  molecule's nitrogen; emerald means a validated / passing result. The accents
+  darken in light mode so they stay legible on paper.
 */
 @theme {
+  /* Light theme — the default. Dark values live in the override below. */
+  --color-bg: #fbfaf7;
+  --color-surface: #ffffff;
+  --color-surface-2: #f2f0ea;
+  --color-border: #e6e1d7;
+
+  --color-fg: #1b1e26;
+  --color-muted: #55606f;
+  --color-faint: #8b95a4;
+
+  --color-iron: #b5530e; /* heme iron */
+  --color-iron-deep: #8f3f08;
+  --color-nitrogen: #0e7490; /* candidate nitrogen */
+  --color-pass: #047857; /* validated */
+  --color-fail: #be123c;
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html[data-theme="dark"] {
   --color-bg: #05070d;
   --color-surface: #0a0e1a;
   --color-surface-2: #111726;
@@ -15,17 +42,17 @@
   --color-muted: #8a94a6;
   --color-faint: #5b6474;
 
-  --color-iron: #f9a826; /* heme iron */
+  --color-iron: #f9a826;
   --color-iron-deep: #e2711d;
-  --color-nitrogen: #4cc9f0; /* candidate nitrogen */
-  --color-pass: #34d399; /* validated */
+  --color-nitrogen: #4cc9f0;
+  --color-pass: #34d399;
   --color-fail: #fb7185;
-
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 :root {
+  color-scheme: light;
+}
+html[data-theme="dark"] {
   color-scheme: dark;
 }
 
@@ -41,18 +68,23 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Subtle grid + radial glow used behind hero-type sections */
-.bg-grid {
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 44px 44px;
+/* Theme toggle: show the moon in light mode, the sun in dark mode. Driven by
+   the attribute alone so the correct icon is right from the first paint. */
+.theme-icon-sun {
+  display: none;
+}
+html[data-theme="dark"] .theme-icon-sun {
+  display: block;
+}
+html[data-theme="dark"] .theme-icon-moon {
+  display: none;
 }
 
+/* Soft radial wash behind the molecular animation. Adapts to the themed iron. */
 .glow-iron {
   background: radial-gradient(
     60% 50% at 50% 40%,
-    rgba(249, 168, 38, 0.14),
+    color-mix(in oklab, var(--color-iron) 12%, transparent),
     transparent 70%
   );
 }
