@@ -17,7 +17,7 @@ import {
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p className="font-mono text-xs uppercase tracking-[0.2em] text-iron">
+    <p className="text-xs font-semibold uppercase tracking-wider text-iron">
       {children}
     </p>
   );
@@ -35,10 +35,7 @@ export default function Home() {
       <Nav />
       <main id="top">
         {/* Hero — the mission */}
-        <section className="relative flex min-h-screen items-center overflow-hidden">
-          <div className="bg-grid pointer-events-none absolute inset-0 opacity-60" />
-          <div className="glow-iron pointer-events-none absolute inset-0" />
-          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-bg" />
+        <section className="relative flex min-h-[88vh] items-center">
           <div className="relative mx-auto max-w-4xl px-6 pt-28 pb-20">
             <Reveal>
               <Eyebrow>{hero.eyebrow}</Eyebrow>
@@ -84,9 +81,9 @@ export default function Home() {
               </h2>
             </Reveal>
             <div className="mt-14 grid gap-6 md:grid-cols-3">
-              {problem.points.map((pt, i) => (
-                <Reveal key={pt.k} delay={i * 0.1} as="div">
-                  <div className="h-full rounded-2xl border border-border bg-surface/50 p-7">
+              {problem.points.map((pt) => (
+                <Reveal key={pt.k} as="div">
+                  <div className="h-full rounded-xl border border-border bg-surface p-7">
                     <h3 className="text-lg font-semibold text-fg">{pt.k}</h3>
                     <p className="mt-3 text-[15px] leading-relaxed text-muted">
                       {pt.v}
@@ -111,8 +108,8 @@ export default function Home() {
             </Reveal>
             <div className="mt-14 grid gap-6 md:grid-cols-3">
               {approach.pillars.map((pt, i) => (
-                <Reveal key={pt.k} delay={i * 0.1} as="div">
-                  <div className="h-full rounded-2xl border border-border bg-surface/50 p-7">
+                <Reveal key={pt.k} as="div">
+                  <div className="h-full rounded-xl border border-border bg-surface p-7">
                     <div className="mb-5 font-mono text-sm text-iron">
                       {String(i + 1).padStart(2, "0")}
                     </div>
@@ -203,8 +200,8 @@ export default function Home() {
             </Reveal>
 
             {/* Honest limits, kept with the project */}
-            <div className="mt-14 rounded-2xl border border-border bg-bg/50 p-8">
-              <h3 className="font-mono text-sm uppercase tracking-[0.15em] text-muted">
+            <div className="mt-14 rounded-xl border border-border bg-surface-2 p-8">
+              <h3 className="text-sm font-semibold uppercase tracking-wide text-muted">
                 {projectSection.limitsTitle}
               </h3>
               <ul className="mt-6 space-y-3">
@@ -245,8 +242,8 @@ export default function Home() {
               {roadmap.stages.map((st, i) => {
                 const s = stateStyles[st.state];
                 return (
-                  <Reveal key={st.title} delay={i * 0.08} as="li">
-                    <div className="relative flex gap-5 rounded-xl p-5 transition-colors hover:bg-surface/50">
+                  <Reveal key={st.title} as="li">
+                    <div className="relative flex gap-5 rounded-xl p-5 transition-colors hover:bg-surface-2">
                       <div className="flex flex-col items-center">
                         <span className={`mt-1.5 h-3 w-3 rounded-full ${s.dot}`} />
                         {i < roadmap.stages.length - 1 && (
@@ -279,10 +276,9 @@ export default function Home() {
         {/* Contact / CTA */}
         <section
           id="contact"
-          className="relative overflow-hidden border-t border-border py-32"
+          className="border-t border-border bg-surface-2 py-32"
         >
-          <div className="glow-iron pointer-events-none absolute inset-0" />
-          <div className="relative mx-auto max-w-3xl px-6 text-center">
+          <div className="mx-auto max-w-3xl px-6 text-center">
             <Reveal>
               <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-5xl">
                 {cta.title}

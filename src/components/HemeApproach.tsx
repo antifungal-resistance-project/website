@@ -203,7 +203,7 @@ export function HemeApproach() {
                 textAnchor="middle"
                 className="font-mono"
                 fontSize={11}
-                fill="#0a0e1a"
+                fill="var(--color-bg)"
                 fontWeight={700}
               >
                 Fe
@@ -244,7 +244,7 @@ export function HemeApproach() {
                   textAnchor="middle"
                   className="font-mono"
                   fontSize={10}
-                  fill="#05070d"
+                  fill="var(--color-bg)"
                   fontWeight={700}
                 >
                   N
