@@ -117,8 +117,9 @@ export function HemeApproach() {
                   key={c.title}
                   className="absolute inset-0 transition-all duration-500"
                   style={{
-                    opacity: i === activeIdx ? 1 : 0.18,
-                    transform: `translateY(${(i - activeIdx) * 8}px)`,
+                    opacity: i === activeIdx ? 1 : 0,
+                    transform: `translateY(${(i - activeIdx) * 12}px)`,
+                    pointerEvents: i === activeIdx ? "auto" : "none",
                   }}
                   aria-hidden={i !== activeIdx}
                 >

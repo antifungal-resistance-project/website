@@ -2,6 +2,7 @@ import { Nav } from "@/components/Nav";
 import { Reveal } from "@/components/Reveal";
 import { Stat } from "@/components/Stat";
 import { HemeApproach } from "@/components/HemeApproach";
+import { Footer } from "@/components/Footer";
 import {
   approach,
   cta,
@@ -309,16 +310,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-border py-10">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-sm text-faint sm:flex-row">
-          <span>
-            {org.legal} · {org.mission}
-          </span>
-          <span className="font-mono text-xs">
-            Open science · a rank is a hypothesis, never a hit
-          </span>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
