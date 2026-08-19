@@ -10,6 +10,8 @@ const links = [
   { href: "#approach", label: "What we do" },
   { href: "#science", label: "The science" },
   { href: "#work", label: "Our work" },
+  { href: "/resistance", label: "Resistance 101" },
+  { href: "/resources", label: "Resources" },
 ];
 
 export function Nav() {
