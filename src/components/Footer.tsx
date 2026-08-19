@@ -32,6 +32,8 @@ export function Footer() {
               <FooterLink href="/#mission">Mission</FooterLink>
               <FooterLink href="/#approach">What we do</FooterLink>
               <FooterLink href="/#work">Our work</FooterLink>
+              <FooterLink href="/resistance">Resistance 101</FooterLink>
+              <FooterLink href="/resources">Resources</FooterLink>
             </FooterCol>
             <FooterCol title="Connect">
               <FooterLink href="/#contact">Contact us</FooterLink>

@@ -136,3 +136,129 @@ export const cta = {
   title: "Help us build a world without antifungal resistance.",
   body: "Whether you run a wet lab, study fungal biology, fund neglected disease work, or want to contribute to open science — there's a place for you here. Let's talk.",
 };
+
+/*
+ * Framing copy for the in-depth resistance explainer at /resistance.
+ * The scroll-scene captions themselves live in ResistanceExplainer.tsx (as with
+ * the homepage HemeApproach), so the animation and its words stay together.
+ */
+export const explainer = {
+  eyebrow: "Antifungal resistance, explained",
+  title: "How fungi survive the drugs meant to kill them.",
+  intro:
+    "The most common antifungal drugs, the azoles, all work the same way: they disable one enzyme the fungus needs to live. Resistance comes down to three ways a fungus gets around that. Scroll through each one.",
+  lead: {
+    title: "One enzyme, one drug, one weak point.",
+    body: "Fungi need a molecule called ergosterol to build their cell membranes, and they rely on an enzyme called Cyp51 (encoded by the ERG11 gene) to make it. Azole drugs fit into Cyp51 and place a nitrogen atom against the iron at its core, which shuts the enzyme down. With no working enzyme there is no ergosterol, and with no ergosterol there is no membrane. Each mechanism below breaks a different link in that chain.",
+  },
+  mechanismsIntro: {
+    eyebrow: "Three escape routes",
+    title: "Resistance is not one trick but several.",
+    body: "A resistant fungus rarely invents anything new. It reuses machinery it already has, in three main ways: change the shape of the target, pump the drug back out, or make more of the target than the drug can cover.",
+  },
+  spread: {
+    eyebrow: "Why it's spreading",
+    title: "Resistance is moving out of the clinic and onto the farm.",
+    points: [
+      {
+        k: "Candida auris",
+        v: "A yeast first identified in 2009. It spreads between patients in hospitals, survives on surfaces for weeks, and is often resistant to several antifungal classes at once. The WHO ranks it a critical-priority pathogen.",
+      },
+      {
+        k: "Azoles in agriculture",
+        v: "The same azole chemistry is sprayed on crops at large scale. Molds like Aspergillus fumigatus encounter these fungicides in the soil and can evolve resistance there, before a patient ever takes a related drug.",
+      },
+      {
+        k: "An empty pipeline",
+        v: "We have only a handful of antifungal drug classes, and few new ones are close. Every mechanism a fungus acquires narrows an already thin set of options.",
+      },
+    ],
+  },
+  close: {
+    title: "This is the gap we work on.",
+    body: "Telling a molecule that genuinely binds the enzyme from one that only appears to is a problem of geometry, the same geometry resistance exploits. Measuring it carefully is what our first project set out to prove.",
+  },
+};
+
+/*
+ * Curated external resources. Every link here was verified live. Keep it that
+ * way: a dead link on a nonprofit's resources page reads as neglect. When you
+ * add or edit an entry, open the URL and confirm the org and page still exist.
+ */
+export const resources = {
+  eyebrow: "Resources",
+  title: "The best places to learn about fungal disease and resistance.",
+  intro:
+    "We are one small part of a larger field. Below are the organizations, public-health bodies, and reference materials we trust and return to. Start here if you want to go further than this site can take you.",
+  groups: [
+    {
+      title: "Organizations & advocacy",
+      blurb: "Groups driving awareness, diagnosis, and policy on fungal disease.",
+      links: [
+        {
+          name: "Global Action For Fungal Infections (GAFFI)",
+          href: "https://gaffi.org",
+          desc: "An international foundation working to make fungal diagnostics and essential antifungal medicines available worldwide, and to put fungal disease on the global health agenda.",
+        },
+        {
+          name: "Fungal Infection Trust",
+          href: "https://fungalinfectiontrust.org",
+          desc: "A UK charity that funds fungal-disease research and public education, and runs the LIFE / Fungal Education program.",
+        },
+        {
+          name: "Mycoses Study Group Education & Research Consortium (MSGERC)",
+          href: "https://msgerc.org",
+          desc: "A clinical and research network advancing the diagnosis, treatment, and study of invasive fungal infections.",
+        },
+      ],
+    },
+    {
+      title: "Public health bodies",
+      blurb: "Authoritative surveillance and guidance from global and national agencies.",
+      links: [
+        {
+          name: "WHO Fungal Priority Pathogens List",
+          href: "https://www.who.int/publications/i/item/9789240060241",
+          desc: "The World Health Organization's first ranking of the fungal pathogens that most need research and public-health attention. It is a large part of why Candida auris is now widely known in the field.",
+        },
+        {
+          name: "CDC: Candida auris",
+          href: "https://www.cdc.gov/candida-auris/index.html",
+          desc: "The US Centers for Disease Control's hub on C. auris: how it spreads in hospitals, its multidrug resistance, and current containment guidance.",
+        },
+      ],
+    },
+    {
+      title: "Learn the science",
+      blurb: "Open, structured education from beginner explainers to clinical detail.",
+      links: [
+        {
+          name: "LIFE / Fungal Education",
+          href: "https://en.fungaleducation.org",
+          desc: "Free, open-access education on fungal diseases and the fungi that cause them, layered from plain-language summaries to clinical and lab-level detail, in English and Spanish.",
+        },
+        {
+          name: "Doctor Fungus",
+          href: "https://drfungus.org",
+          desc: "A long-running reference on fungi, antifungal drugs, and clinical mycology cases.",
+        },
+      ],
+    },
+    {
+      title: "Key reports & data",
+      blurb: "The primary sources behind the numbers we cite.",
+      links: [
+        {
+          name: "Denning, Global incidence and mortality of severe fungal disease (Lancet Infect. Dis., 2024)",
+          href: "https://www.thelancet.com/journals/laninf/article/PIIS1473-3099(23)00692-8/abstract",
+          desc: "The burden estimate behind the ~3.8 million deaths a year figure: ~6.5 million invasive fungal infections annually, with a detailed breakdown by disease.",
+        },
+        {
+          name: "WHO Fungal Priority Pathogens List report (PDF)",
+          href: "https://www.who.int/publications/i/item/9789240060241",
+          desc: "The full 48-page WHO report, covering the methodology, the three priority tiers, and the research and policy actions it recommends.",
+        },
+      ],
+    },
+  ],
+};
