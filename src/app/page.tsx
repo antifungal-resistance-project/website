@@ -9,6 +9,7 @@ import {
   hero,
   org,
   problem,
+  product,
   project,
   projectSection,
   roadmap,
@@ -54,18 +55,82 @@ export default function Home() {
             <Reveal delay={0.24}>
               <div className="mt-9 flex flex-wrap items-center gap-4">
                 <a
-                  href="#mission"
+                  href="#weather"
                   className="rounded-full bg-iron px-6 py-3 text-sm font-semibold text-bg transition-transform hover:-translate-y-0.5"
+                >
+                  See Resistance Weather
+                </a>
+                <a
+                  href="#mission"
+                  className="rounded-full border border-border px-6 py-3 text-sm font-semibold text-fg transition-colors hover:border-iron hover:text-iron"
                 >
                   Our mission
                 </a>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Flagship — Resistance Weather, the surveillance product */}
+        <section id="weather" className="border-t border-border bg-surface/30 py-28">
+          <div className="mx-auto max-w-6xl px-6">
+            <Reveal>
+              <Eyebrow>{product.eyebrow}</Eyebrow>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <h2 className="mt-5 max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl">
+                {product.title}
+              </h2>
+            </Reveal>
+            <Reveal delay={0.16}>
+              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+                {product.intro}
+              </p>
+            </Reveal>
+
+            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {product.stats.map((s) => (
+                <Stat
+                  key={s.label}
+                  value={s.value}
+                  label={s.label}
+                  kind={s.kind}
+                  suffix={"suffix" in s ? s.suffix : undefined}
+                  tone={s.tone}
+                />
+              ))}
+            </div>
+
+            <Reveal delay={0.1}>
+              <p className="mt-12 max-w-3xl text-pretty text-xl leading-relaxed text-fg">
+                {product.takeaway}
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.1}>
+              <div className="mt-10 flex flex-wrap items-center gap-4">
                 <a
-                  href="#contact"
+                  href={product.liveHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full bg-iron px-6 py-3 text-sm font-semibold text-bg transition-transform hover:-translate-y-0.5"
+                >
+                  {product.liveLabel} →
+                </a>
+                <a
+                  href={product.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="rounded-full border border-border px-6 py-3 text-sm font-semibold text-fg transition-colors hover:border-iron hover:text-iron"
                 >
-                  Get involved
+                  {product.repoLabel}
                 </a>
               </div>
+            </Reveal>
+            <Reveal delay={0.16}>
+              <p className="mt-5 max-w-2xl text-sm leading-relaxed text-muted">
+                {product.liveNote}
+              </p>
             </Reveal>
           </div>
         </section>

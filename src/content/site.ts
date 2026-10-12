@@ -3,8 +3,15 @@
  * Edit here to change headings, stats, and CTAs — no component edits needed.
  *
  * The site leads with the FOUNDATION's mission (fungal research; a world without
- * antifungal resistance). OpenAFR — the screening pipeline — is presented as our
- * first project, not the headline.
+ * antifungal resistance). Its flagship project is Resistance Weather — live, open
+ * surveillance of echinocandin resistance in Candida auris, built on a certified
+ * re-caller. The antifungal-discovery screening pipeline is our research arm, shown
+ * after the flagship, not as the headline.
+ *
+ * Numbers rule: the certified-caller accuracy figures (product.stats) are STABLE —
+ * frozen by a pre-registered, hash-pinned benchmark — so they live here. The live
+ * isolate / resistance counts are VOLATILE and owned by the weather page; we link to
+ * it (product.liveHref) rather than freezing a count into marketing copy.
  */
 
 export const org = {
@@ -25,10 +32,37 @@ export const project = {
   repo: "https://github.com/antifungal-resistance-project/OpenAFR",
 };
 
+/*
+ * The flagship: Resistance Weather — live, open surveillance of echinocandin
+ * resistance in Candida auris. The stats below are the CERTIFIED-CALLER accuracy
+ * figures (frozen, pre-registered benchmark) — stable, so they live here. Current
+ * isolate / resistance counts live on the weather page (liveHref), not here.
+ */
+export const product = {
+  eyebrow: "Our flagship — live surveillance",
+  title: "Resistance Weather — reading echinocandin resistance in Candida auris.",
+  intro:
+    "Our flagship is a live, open read on echinocandin resistance in the WHO critical-priority yeast Candida auris, rebuilt from public genome data. It rests on a re-caller we certified against an external, pre-registered benchmark before we trusted a single result — so the surveillance signal stands on measured accuracy, not assertion.",
+  stats: [
+    { label: "Sensitivity vs. the 98-isolate benchmark", value: 100, suffix: "%", kind: "int" as const, tone: "pass" as const },
+    { label: "Specificity vs. the 98-isolate benchmark", value: 100, suffix: "%", kind: "int" as const, tone: "pass" as const },
+    { label: "Benchmark genotypes resolved (98 / 98)", value: 98, kind: "int" as const, tone: "pass" as const },
+    { label: "False calls — in either direction", value: 0, kind: "int" as const, tone: "pass" as const },
+  ],
+  takeaway:
+    "The caller was graded blind against PMC12323592, a published 98-isolate truth set, with its pass bar and interpretation frozen by a SHA-256 hash beforehand. It recovered every FKS1 resistance genotype and raised no false alarms — and a continuous-integration check re-proves that result on every change.",
+  liveLabel: "See the live resistance map",
+  liveHref: "https://antifungal-resistance-project.github.io/OpenAFR/",
+  liveNote:
+    "The live page carries the current isolate and resistance counts; they update as new genomes land, so we don't freeze a number here.",
+  repoLabel: "Read the certified caller and its benchmark",
+  repo: project.repo,
+};
+
 export const hero = {
   eyebrow: org.tagline,
   title: "For a world without antifungal resistance.",
-  sub: "Fungal disease is linked to an estimated 3.8 million deaths a year, the drugs that fight it are failing, and almost no one is working on it. We research the biology of fungal disease and build open, rigorously validated science to keep antifungal medicines working.",
+  sub: "Fungal disease is linked to an estimated 3.8 million deaths a year, the drugs that fight it are failing, and almost no one is working on it. We build open, rigorously validated science to keep antifungal medicines working — starting with live surveillance of echinocandin resistance in Candida auris, rebuilt from public genomes.",
 };
 
 export const problem = {
@@ -82,12 +116,13 @@ export const values = {
   body: "Computational biology produces hypotheses, not cures — and it is easy to publish a confident-looking result that means nothing. So we build the evidence in first: our tools must re-discover the drugs we already know work, on molecules they have never seen, before they are allowed to rank anything new. Every result, including the runs that fail, is written up in the open.",
 };
 
-// OpenAFR presented as the foundation's first project.
+// The research arm: the antifungal-discovery screening pipeline. Secondary to the
+// surveillance flagship above; the stats and honest limits are unchanged and still hold.
 export const projectSection = {
-  eyebrow: "Our first project",
-  title: "OpenAFR — proving the method on Candida auris.",
+  eyebrow: "Research arm — antifungal discovery",
+  title: "Can geometry rank new antifungals before a wet lab ever runs?",
   intro:
-    "Our first open pipeline puts the approach to the test. On a held-out challenge frozen with a SHA-256 hash before any data was generated, it was asked to find 7 azole antifungals it had never seen, hidden among 348 look-alike decoys.",
+    "Alongside surveillance, we run an exploratory screening pipeline that asks a sharper question than a docking score can: how a candidate molecule actually meets its target. On a held-out challenge frozen with a SHA-256 hash before any data was generated, it was asked to find 7 azole antifungals it had never seen, hidden among 348 look-alike decoys.",
   stats: [
     { label: "AUC — iron-approach distance", value: 0.794, kind: "decimal" as const, tone: "pass" as const },
     { label: "Enrichment in the top 5% shortlist", value: 5.6, suffix: "×", kind: "decimal" as const, tone: "pass" as const },
@@ -95,7 +130,7 @@ export const projectSection = {
     { label: "AUC — docking affinity score", value: 0.471, kind: "decimal" as const, tone: "fail" as const },
   ],
   takeaway:
-    "How closely a molecule brings a nitrogen to the heme iron discriminated real drugs from look-alikes far better than the docking program's own score — on the exact same poses. It's early, single-project evidence that the method works.",
+    "How closely a molecule brings a nitrogen to the heme iron discriminated real drugs from look-alikes far better than the docking program's own score — on the exact same poses. It's early, single-project evidence that the method works, and why we hold discovery to the same proof bar as the surveillance product.",
   limitsTitle: "What it does not yet prove",
   limits: [
     "n = 7 held-out actives; the 95% confidence interval's lower bound still sits below the pass bar.",
@@ -107,27 +142,32 @@ export const projectSection = {
 
 export const roadmap = {
   eyebrow: "Where we're headed",
-  title: "From a proven method to a shared platform for antifungal discovery.",
+  title: "From a certified caller to open, shared resistance surveillance.",
   stages: [
     {
       state: "done" as const,
-      title: "Prove the method",
-      body: "Ship a self-validating pipeline whose ranking criterion passes a pre-registered, held-out test — with the failing runs published too.",
+      title: "Certify the caller",
+      body: "Grade the FKS1 echinocandin re-caller against an external, pre-registered benchmark — and guard the result with a check that re-runs on every change.",
+    },
+    {
+      state: "done" as const,
+      title: "Ship the live weather page",
+      body: "Turn the certified caller into a public, continuously updated read on echinocandin resistance in Candida auris, rebuilt from public genomes.",
     },
     {
       state: "next" as const,
-      title: "Broaden the science",
-      body: "Extend beyond one enzyme and one pathogen, and turn ranked candidates into clear, reproducible reports a collaborator can act on.",
+      title: "Broaden coverage & cadence",
+      body: "Widen the genome window, refresh more often, and extend the same certify-first approach to further resistance mechanisms and pathogens.",
+    },
+    {
+      state: "next" as const,
+      title: "Open the surveillance platform",
+      body: "Grow into shared, open data and infrastructure any lab or public-health team can build on — so a resistance signal reaches the people who can act on it.",
     },
     {
       state: "blocked" as const,
-      title: "Partner with wet labs",
-      body: "Put top candidates on real fungus. This is the critical dependency — nothing here is validated until someone does.",
-    },
-    {
-      state: "next" as const,
-      title: "Open the platform",
-      body: "Grow into shared, open infrastructure and data that any antifungal researcher can use — so progress compounds across the whole field.",
+      title: "Partner with wet labs (discovery arm)",
+      body: "Put the discovery pipeline's top candidates on real fungus. This is the critical dependency for the research arm — nothing there is validated until someone does.",
     },
   ],
 };
