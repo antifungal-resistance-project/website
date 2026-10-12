@@ -55,10 +55,10 @@ export default function Home() {
             <Reveal delay={0.24}>
               <div className="mt-9 flex flex-wrap items-center gap-4">
                 <a
-                  href="#weather"
+                  href="#building"
                   className="rounded-full bg-iron px-6 py-3 text-sm font-semibold text-bg transition-transform hover:-translate-y-0.5"
                 >
-                  See Resistance Weather
+                  See what we're building
                 </a>
                 <a
                   href="#mission"
@@ -71,8 +71,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Flagship — Resistance Weather, the surveillance product */}
-        <section id="weather" className="border-t border-border bg-surface/30 py-28">
+        {/* What we're building — the resistance tracker */}
+        <section id="building" className="border-t border-border bg-surface/30 py-28">
           <div className="mx-auto max-w-6xl px-6">
             <Reveal>
               <Eyebrow>{product.eyebrow}</Eyebrow>
@@ -88,7 +88,7 @@ export default function Home() {
               </p>
             </Reveal>
 
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {product.stats.map((s) => (
                 <Stat
                   key={s.label}
@@ -246,7 +246,7 @@ export default function Home() {
               </p>
             </Reveal>
 
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {projectSection.stats.map((s) => (
                 <Stat
                   key={s.label}
