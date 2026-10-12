@@ -53,22 +53,22 @@ const CAPTIONS = [
   {
     at: 0.05,
     title: "Meet the target",
-    body: "Deep inside a fungal cell sits CYP51 — an enzyme the fungus needs to survive. At its heart is an iron atom, held in a ring called a heme.",
+    body: "Deep inside a fungal cell sits a tiny machine the fungus needs to survive. At its center is a single iron atom.",
   },
   {
     at: 0.33,
     title: "How the drugs work",
-    body: "Antifungal drugs slip into this pocket and reach a nitrogen atom toward the iron, jamming the enzyme. That's how the whole azole class kills fungus.",
+    body: "An antifungal drug slips into the machine and reaches one of its own atoms right up against that iron. That jams the machine, and the fungus can't grow. Most common antifungals kill this way.",
   },
   {
     at: 0.6,
     title: "Why resistance is hard to beat",
-    body: "Many molecules look like they should fit. What actually matters is a matter of ångströms: how close that nitrogen truly gets to the iron.",
+    body: "Plenty of molecules look like they should fit. What actually matters is distance: how close the drug's atom truly gets to the iron. A hair too far and it does nothing.",
   },
   {
     at: 0.85,
-    title: "The line between hit and miss",
-    body: "N–Fe ≈ 2.63 Å — an iron-coordinating pose, the hallmark of a drug that works. Measuring this is how our research tells real candidates from look-alikes.",
+    title: "The line between a hit and a miss",
+    body: "Get right up against the iron and the drug works. That tiny distance is what our research measures to tell real candidates from look-alikes.",
   },
 ];
 
@@ -149,7 +149,7 @@ export function HemeApproach() {
               viewBox="0 0 400 400"
               className="mx-auto w-full max-w-md"
               role="img"
-              aria-label="A candidate molecule's nitrogen approaching the heme iron of CYP51"
+              aria-label="A drug molecule reaching up against the iron atom at the center of the fungal machine it targets"
             >
               {/* iron glow */}
               <circle

@@ -20,7 +20,7 @@ export const org = {
   legal: "The Antifungal Resistance Project",
   domain: "antifungalresistance.org", // registration in progress
   mission: "For a world without antifungal resistance.",
-  tagline: "A nonprofit for fungal research and open antifungal science.",
+  tagline: "A nonprofit working to keep the medicines that fight fungal infections working.",
   email: "hello@antifungalresistance.org",
   github: "https://github.com/antifungal-resistance-project", // the org
 };
@@ -33,148 +33,146 @@ export const project = {
 };
 
 /*
- * The flagship: Resistance Weather — live, open surveillance of echinocandin
- * resistance in Candida auris. The stats below are the CERTIFIED-CALLER accuracy
- * figures (frozen, pre-registered benchmark) — stable, so they live here. Current
- * isolate / resistance counts live on the weather page (liveHref), not here.
+ * The main thing we're building: a free, live tracker for a drug-resistant
+ * hospital fungus. The numbers below come from checking our tool against known
+ * lab results (a fixed, locked-in test), so they're stable and live here. The
+ * current case counts are on the live page (liveHref), not frozen into copy.
  */
 export const product = {
-  eyebrow: "Our flagship — live surveillance",
-  title: "Resistance Weather — reading echinocandin resistance in Candida auris.",
+  eyebrow: "What we're building",
+  title: "A free, live tracker for a drug-resistant hospital fungus.",
   intro:
-    "Our flagship is a live, open read on echinocandin resistance in the WHO critical-priority yeast Candida auris, rebuilt from public genome data. It rests on a re-caller we certified against an external, pre-registered benchmark before we trusted a single result — so the surveillance signal stands on measured accuracy, not assertion.",
+    "Candida auris is a fungus that spreads in hospitals, and it is increasingly surviving the drugs meant to kill it. Labs around the world share its DNA in public databases. We built a free tool that reads that DNA, spots the exact genetic changes that let the fungus resist one important group of drugs, and shows the current picture on a public page anyone can check.",
   stats: [
-    { label: "Sensitivity vs. the 98-isolate benchmark", value: 100, suffix: "%", kind: "int" as const, tone: "pass" as const },
-    { label: "Specificity vs. the 98-isolate benchmark", value: 100, suffix: "%", kind: "int" as const, tone: "pass" as const },
-    { label: "Benchmark genotypes resolved (98 / 98)", value: 98, kind: "int" as const, tone: "pass" as const },
-    { label: "False calls — in either direction", value: 0, kind: "int" as const, tone: "pass" as const },
+    { label: "lab-confirmed cases we checked our tool against", value: 98, suffix: " / 98", kind: "int" as const, tone: "pass" as const },
+    { label: "of those cases our tool got right", value: 98, suffix: " / 98", kind: "int" as const, tone: "pass" as const },
+    { label: "resistant cases it missed, and zero false alarms", value: 0, kind: "int" as const, tone: "pass" as const },
   ],
   takeaway:
-    "The caller was graded blind against PMC12323592, a published 98-isolate truth set, with its pass bar and interpretation frozen by a SHA-256 hash beforehand. It recovered every FKS1 resistance genotype and raised no false alarms — and a continuous-integration check re-proves that result on every change.",
-  liveLabel: "See the live resistance map",
+    "A tracker is only as trustworthy as the tool behind it. Before we trusted ours, we tested it on 98 cases that labs had already worked out by hand. It got all 98 right: it never missed a resistant case and never raised a false alarm. An automatic check re-runs that same test every time we change the code, so it stays honest.",
+  liveLabel: "See the live tracker",
   liveHref: "https://antifungal-resistance-project.github.io/OpenAFR/",
   liveNote:
-    "The live page carries the current isolate and resistance counts; they update as new genomes land, so we don't freeze a number here.",
-  repoLabel: "Read the certified caller and its benchmark",
+    "The live page shows how many cases we're seeing right now and how many are resistant. Those numbers change as new DNA is shared, so we don't freeze a count here.",
+  repoLabel: "See how the tool works",
   repo: project.repo,
 };
 
 export const hero = {
   eyebrow: org.tagline,
   title: "For a world without antifungal resistance.",
-  sub: "Fungal disease is linked to an estimated 3.8 million deaths a year, the drugs that fight it are failing, and almost no one is working on it. We build open, rigorously validated science to keep antifungal medicines working — starting with live surveillance of echinocandin resistance in Candida auris, rebuilt from public genomes.",
+  sub: "Fungal infections kill an estimated 3.8 million people a year. The handful of medicines we have to fight them are slowly stopping working, because the fungi are learning to survive them. Almost no one is working on this. We build free, carefully checked tools to help keep those medicines useful, and to track the dangerous infections that are starting to resist them.",
 };
 
 export const problem = {
-  eyebrow: "Why fungi, why now",
-  title: "Fungal disease is rising, resistant, and overlooked.",
+  eyebrow: "Why this matters",
+  title: "These infections are rising, harder to treat, and mostly ignored.",
   points: [
     {
-      k: "A hidden global killer",
-      v: "Invasive fungal infections cause millions of deaths a year — often in people already fighting cancer, HIV, or ICU illness — yet they get a fraction of the attention bacteria do.",
+      k: "A hidden killer",
+      v: "Serious fungal infections kill millions of people a year, usually people already weakened by cancer, HIV, or a stay in intensive care. They get a tiny fraction of the attention that bacterial infections get.",
     },
     {
-      k: "Resistance is spreading",
-      v: "Pathogens like the WHO critical-priority Candida auris now resist multiple antifungal classes at once and move through hospitals faster than we can respond.",
+      k: "The drugs are starting to fail",
+      v: "A fungus called Candida auris is spreading through hospitals and shrugging off several of our antifungal drugs at once. The World Health Organization lists it as one of the most urgent fungal threats.",
     },
     {
-      k: "The pipeline is nearly empty",
-      v: "Antifungal R&D is dramatically underfunded relative to antibacterial R&D. Few new drug classes are coming, and the ones we have are eroding.",
+      k: "Almost nothing new is coming",
+      v: "Very little money goes into new antifungal drugs. Few new ones are on the way, and the ones we already have are slowly losing their punch.",
     },
   ],
 };
 
 export const approach = {
   eyebrow: "What we do",
-  title: "Understand fungi. Build in the open. Hold every claim to proof.",
+  title: "Learn how fungi work. Build in the open. Prove it before we claim it.",
   pillars: [
     {
-      k: "Research the biology",
-      v: "Study how fungi cause disease and evade our drugs — starting with the enzymes and binding sites that antifungal resistance turns on.",
+      k: "Study the biology",
+      v: "We dig into how fungi cause disease and how they survive the drugs meant to kill them.",
     },
     {
-      k: "Build open tools",
-      v: "Release reproducible, freely available software and data so any lab can build on the work, not just us.",
+      k: "Build free, open tools",
+      v: "Everything we make is free and open, so any lab or hospital can use it and check it, not just us.",
     },
     {
-      k: "Bring people together",
-      v: "Connect computational work with the wet labs, clinicians, and funders who can turn a hypothesis into a real treatment.",
+      k: "Connect the people who can act",
+      v: "We link up the computer work with the labs, doctors, and funders who can turn an idea into a real treatment.",
     },
   ],
 };
 
 // Framing for the scroll-driven molecular animation (captions live in HemeApproach.tsx).
 export const science = {
-  eyebrow: "The science of resistance",
-  title: "Resistance is a story about geometry.",
-  sub: "Scroll to see how an antifungal drug actually works — and what really separates a molecule that kills fungus from one that only looks like it should.",
+  eyebrow: "How the drugs work",
+  title: "It really comes down to shape.",
+  sub: "Scroll to see how an antifungal drug actually kills a fungus, and what makes the difference between a molecule that works and one that only looks like it should.",
 };
 
 export const values = {
   eyebrow: "How we work",
-  title: "We hold our own work to proof before we ask anyone to trust it.",
-  body: "Computational biology produces hypotheses, not cures — and it is easy to publish a confident-looking result that means nothing. So we build the evidence in first: our tools must re-discover the drugs we already know work, on molecules they have never seen, before they are allowed to rank anything new. Every result, including the runs that fail, is written up in the open.",
+  title: "We prove our own tools before we ask anyone to trust them.",
+  body: "A computer prediction is just a guess until someone checks it, and it's easy to show off a confident-looking result that means nothing. So we test ours against answers we already know are right before we let them loose on anything new. We publish everything, including the tries that fail.",
 };
 
-// The research arm: the antifungal-discovery screening pipeline. Secondary to the
-// surveillance flagship above; the stats and honest limits are unchanged and still hold.
+// Our second, more exploratory project: searching for new antifungal drugs.
+// Secondary to the tracker above. The numbers and honest limits are unchanged.
 export const projectSection = {
-  eyebrow: "Research arm — antifungal discovery",
-  title: "Can geometry rank new antifungals before a wet lab ever runs?",
+  eyebrow: "Also in the works",
+  title: "Can a computer spot a promising new drug before anyone tests it in a lab?",
   intro:
-    "Alongside surveillance, we run an exploratory screening pipeline that asks a sharper question than a docking score can: how a candidate molecule actually meets its target. On a held-out challenge frozen with a SHA-256 hash before any data was generated, it was asked to find 7 azole antifungals it had never seen, hidden among 348 look-alike decoys.",
+    "Alongside the tracker, we're testing a bolder idea: using the physical shape of a molecule to judge whether it could become a new antifungal drug, instead of relying on the usual scoring programs. As a fair test, we hid 7 real antifungal drugs among 348 look-alike molecules and asked our method to pick them out, with the rules locked in beforehand so we couldn't nudge the result.",
   stats: [
-    { label: "AUC — iron-approach distance", value: 0.794, kind: "decimal" as const, tone: "pass" as const },
-    { label: "Enrichment in the top 5% shortlist", value: 5.6, suffix: "×", kind: "decimal" as const, tone: "pass" as const },
-    { label: "Permutation-test p", value: 0.0028, kind: "p" as const, tone: "pass" as const },
-    { label: "AUC — docking affinity score", value: 0.471, kind: "decimal" as const, tone: "fail" as const },
+    { label: "our method's score (0.5 is a coin flip, 1.0 is perfect)", value: 0.794, kind: "decimal" as const, tone: "pass" as const },
+    { label: "the usual scoring program, on the very same data", value: 0.471, kind: "decimal" as const, tone: "fail" as const },
+    { label: "more real drugs in our top picks than chance would give", value: 5.6, suffix: "×", kind: "decimal" as const, tone: "pass" as const },
   ],
   takeaway:
-    "How closely a molecule brings a nitrogen to the heme iron discriminated real drugs from look-alikes far better than the docking program's own score — on the exact same poses. It's early, single-project evidence that the method works, and why we hold discovery to the same proof bar as the surveillance product.",
-  limitsTitle: "What it does not yet prove",
+    "It worked. Real drugs rose to the top far more often with our method than with the standard program, on the exact same data, and the odds this was just luck were about 3 in 1,000. It's early, and it's only one test, but it's real evidence the idea has legs.",
+  limitsTitle: "What this does not prove yet",
   limits: [
-    "n = 7 held-out actives; the 95% confidence interval's lower bound still sits below the pass bar.",
-    "Decoys are presumed inactive, not experimentally verified.",
-    "One rigid receptor (C. albicans, not C. auris); no induced fit.",
-    "This validates a ranking method, not a drug. A high rank is a hypothesis for a wet lab — never a hit.",
+    "We only had 7 real drugs to find, so we can't be fully sure yet.",
+    "The look-alike molecules are assumed to be duds, not confirmed in a lab.",
+    "We used a simplified, fixed model of the target, not a fully lifelike one.",
+    "This points to ideas worth testing. It doesn't find a drug. A high score is a lead for a lab, never a cure.",
   ],
 };
 
 export const roadmap = {
   eyebrow: "Where we're headed",
-  title: "From a certified caller to open, shared resistance surveillance.",
+  title: "From a tool we've proven to open tracking anyone can use.",
   stages: [
     {
       state: "done" as const,
-      title: "Certify the caller",
-      body: "Grade the FKS1 echinocandin re-caller against an external, pre-registered benchmark — and guard the result with a check that re-runs on every change.",
+      title: "Prove the tool works",
+      body: "We checked our resistance detector against known lab results and set up an automatic test that re-checks it every time we change the code.",
     },
     {
       state: "done" as const,
-      title: "Ship the live weather page",
-      body: "Turn the certified caller into a public, continuously updated read on echinocandin resistance in Candida auris, rebuilt from public genomes.",
+      title: "Put it online for everyone",
+      body: "We turned it into a free, always-updating public page that shows where this drug-resistant fungus is turning up.",
     },
     {
       state: "next" as const,
-      title: "Broaden coverage & cadence",
-      body: "Widen the genome window, refresh more often, and extend the same certify-first approach to further resistance mechanisms and pathogens.",
+      title: "Cover more, update more often",
+      body: "Watch a wider slice of the data, refresh it more often, and use the same careful approach for more infections and more drugs.",
     },
     {
       state: "next" as const,
-      title: "Open the surveillance platform",
-      body: "Grow into shared, open data and infrastructure any lab or public-health team can build on — so a resistance signal reaches the people who can act on it.",
+      title: "Open it up as a shared service",
+      body: "Grow into free data and tools any lab or health team can build on, so a warning reaches the people who can act on it.",
     },
     {
       state: "blocked" as const,
-      title: "Partner with wet labs (discovery arm)",
-      body: "Put the discovery pipeline's top candidates on real fungus. This is the critical dependency for the research arm — nothing there is validated until someone does.",
+      title: "Test new drug ideas in the lab",
+      body: "Put our most promising molecules in front of real fungus. We can't do this part alone: it needs lab partners, and nothing is proven until they run it.",
     },
   ],
 };
 
 export const cta = {
-  title: "Help us build a world without antifungal resistance.",
-  body: "Whether you run a wet lab, study fungal biology, fund neglected disease work, or want to contribute to open science — there's a place for you here. Let's talk.",
+  title: "Help us keep these medicines working.",
+  body: "Whether you run a lab, study fungi, fund work on neglected diseases, or just want to help with open science, there's a place for you here. Say hello.",
 };
 
 /*
@@ -183,18 +181,18 @@ export const cta = {
  * the homepage HemeApproach), so the animation and its words stay together.
  */
 export const explainer = {
-  eyebrow: "Antifungal resistance, explained",
+  eyebrow: "The basics",
   title: "How fungi survive the drugs meant to kill them.",
   intro:
-    "The most common antifungal drugs, the azoles, all work the same way: they disable one enzyme the fungus needs to live. Resistance comes down to three ways a fungus gets around that. Scroll through each one.",
+    "Most antifungal drugs work the same basic way: they jam one tiny machine the fungus needs to stay alive. A fungus becomes resistant when it finds a way around that. There are three main tricks, and you can scroll through each one below.",
   lead: {
-    title: "One enzyme, one drug, one weak point.",
-    body: "Fungi need a molecule called ergosterol to build their cell membranes, and they rely on an enzyme called Cyp51 (encoded by the ERG11 gene) to make it. Azole drugs fit into Cyp51 and place a nitrogen atom against the iron at its core, which shuts the enzyme down. With no working enzyme there is no ergosterol, and with no ergosterol there is no membrane. Each mechanism below breaks a different link in that chain.",
+    title: "One machine, one drug, one weak spot.",
+    body: "To build the wall around each of its cells, a fungus needs a particular building-block molecule (its name is ergosterol). It makes that block using a tiny protein machine (called Cyp51). The drug slots into that machine and jams it shut. With the machine stuck, the building block never gets made, the cell wall never forms, and the fungus dies. Each trick below breaks that chain in a different place.",
   },
   mechanismsIntro: {
-    eyebrow: "Three escape routes",
-    title: "Resistance is not one trick but several.",
-    body: "A resistant fungus rarely invents anything new. It reuses machinery it already has, in three main ways: change the shape of the target, pump the drug back out, or make more of the target than the drug can cover.",
+    eyebrow: "Three ways around the drug",
+    title: "There's more than one way to resist.",
+    body: "A resistant fungus rarely invents something new. It reuses parts it already has, in three main ways: change the shape of the machine so the drug no longer fits, pump the drug back out before it can work, or make so many copies of the machine that the drug can't jam them all.",
   },
   spread: {
     eyebrow: "Why it's spreading",
@@ -202,21 +200,21 @@ export const explainer = {
     points: [
       {
         k: "Candida auris",
-        v: "A yeast first identified in 2009. It spreads between patients in hospitals, survives on surfaces for weeks, and is often resistant to several antifungal classes at once. The WHO ranks it a critical-priority pathogen.",
+        v: "A yeast first spotted in 2009. It spreads between patients in hospitals, survives on surfaces for weeks, and often resists several antifungal drugs at once. The World Health Organization ranks it among the most urgent fungal threats.",
       },
       {
-        k: "Azoles in agriculture",
-        v: "The same azole chemistry is sprayed on crops at large scale. Molds like Aspergillus fumigatus encounter these fungicides in the soil and can evolve resistance there, before a patient ever takes a related drug.",
+        k: "The same drugs on crops",
+        v: "Close cousins of these drugs are sprayed on crops to protect them. Molds in the soil, like Aspergillus fumigatus, meet the sprays out in the field and can become resistant there, before a patient ever takes a related drug.",
       },
       {
-        k: "An empty pipeline",
-        v: "We have only a handful of antifungal drug classes, and few new ones are close. Every mechanism a fungus acquires narrows an already thin set of options.",
+        k: "Almost nothing new is coming",
+        v: "We have only a few kinds of antifungal drug, and few new ones are close. Every trick a fungus picks up shrinks an already short list of options.",
       },
     ],
   },
   close: {
     title: "This is the gap we work on.",
-    body: "Telling a molecule that genuinely binds the enzyme from one that only appears to is a problem of geometry, the same geometry resistance exploits. Measuring it carefully is what our first project set out to prove.",
+    body: "Telling a molecule that truly jams the machine from one that only looks like it should comes down to shape, the same shape that resistance twists to its own advantage. Measuring that shape carefully is what our drug-search work set out to prove.",
   },
 };
 
@@ -229,7 +227,7 @@ export const resources = {
   eyebrow: "Resources",
   title: "The best places to learn about fungal disease and resistance.",
   intro:
-    "We are one small part of a larger field. Below are the organizations, public-health bodies, and reference materials we trust and return to. Start here if you want to go further than this site can take you.",
+    "We're one small part of a much larger field. Below are the groups, public-health agencies, and references we trust and keep coming back to. Start here if you want to go further than this site can take you.",
   groups: [
     {
       title: "Organizations & advocacy",
@@ -254,7 +252,7 @@ export const resources = {
     },
     {
       title: "Public health bodies",
-      blurb: "Authoritative surveillance and guidance from global and national agencies.",
+      blurb: "Trusted tracking and guidance from global and national health agencies.",
       links: [
         {
           name: "WHO Fungal Priority Pathogens List",

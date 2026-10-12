@@ -288,18 +288,18 @@ function OverexpressionVisual(p: number) {
 const MUTATION: Caption[] = [
   {
     at: 0,
-    title: "1. Change the target's shape",
-    body: "Start with the drug working normally. Its nitrogen reaches the iron, the enzyme is frozen, and the fungus cannot make ergosterol.",
+    title: "1. Change the machine's shape",
+    body: "Start with the drug working normally. It reaches into the machine, jams it shut, and the fungus can't make its building block.",
   },
   {
     at: 0.4,
-    title: "A single amino acid changes",
-    body: "A mutation in the ERG11 gene, such as the well-known Y132F, swaps one amino acid lining the pocket. The surface the drug relied on now has a different shape.",
+    title: "A tiny change in the machine",
+    body: "A small change in the fungus's instructions (a mutation in a gene called ERG11) reshapes one piece of the machine. The spot the drug used to grab onto now has a different shape.",
   },
   {
     at: 0.72,
     title: "The drug no longer fits",
-    body: "The drug can no longer place its nitrogen on the iron. The bond does not form, the enzyme keeps working, and the fungus survives a dose that once killed it.",
+    body: "The drug can't lock onto the machine anymore. The machine keeps working, and the fungus survives a dose that once killed it.",
   },
 ];
 
@@ -307,44 +307,44 @@ const EFFLUX: Caption[] = [
   {
     at: 0,
     title: "2. Pump the drug out",
-    body: "The drug has to build up inside the cell to work. Fungal membranes carry pumps: proteins that move unwanted molecules back outside.",
+    body: "The drug has to build up inside the cell to work. Fungal cells have pumps: parts that push unwanted molecules back outside.",
   },
   {
     at: 0.45,
     title: "Add more pumps",
-    body: "Resistant strains produce far more of these efflux pumps, such as CDR1 and MDR1, adding copy after copy to the membrane.",
+    body: "Resistant fungi make far more of these pumps, adding copy after copy around the cell.",
   },
   {
     at: 0.75,
-    title: "Cleared before it can act",
-    body: "The drug is removed faster than it accumulates. It never reaches an effective concentration, so the enzyme is barely affected.",
+    title: "Gone before it can work",
+    body: "The drug gets pushed out faster than it builds up. It never reaches a strong enough level, so the machine keeps running.",
   },
 ];
 
 const OVEREXPRESSION: Caption[] = [
   {
     at: 0,
-    title: "3. Make more of the target",
-    body: "A dose contains only so much drug. Here it blocks the few enzyme copies the fungus normally makes.",
+    title: "3. Make more machines",
+    body: "A dose has only so much drug in it. Here it jams the few machines the fungus normally has.",
   },
   {
     at: 0.4,
-    title: "Flood the cell with enzyme",
-    body: "By raising ERG11 expression, the fungus produces far more Cyp51 than before, more copies than the fixed amount of drug can cover.",
+    title: "Flood the cell with machines",
+    body: "The fungus cranks up production and makes far more machines than the drug can jam.",
   },
   {
     at: 0.75,
     title: "Enough left to survive",
-    body: "The uncovered enzymes keep making ergosterol. The membrane still forms, and the fungus keeps growing during treatment.",
+    body: "The machines the drug never reached keep making the building block. The cell wall still forms, and the fungus keeps growing during treatment.",
   },
 ];
 
 export function ResistanceExplainer() {
   return (
     <>
-      <Scene eyebrow="Mechanism 1 · target-site mutation" captions={MUTATION} render={MutationVisual} />
-      <Scene eyebrow="Mechanism 2 · efflux pumps" captions={EFFLUX} render={EffluxVisual} />
-      <Scene eyebrow="Mechanism 3 · target overexpression" captions={OVEREXPRESSION} render={OverexpressionVisual} />
+      <Scene eyebrow="Trick 1 · change the machine's shape" captions={MUTATION} render={MutationVisual} />
+      <Scene eyebrow="Trick 2 · pump the drug out" captions={EFFLUX} render={EffluxVisual} />
+      <Scene eyebrow="Trick 3 · make more machines" captions={OVEREXPRESSION} render={OverexpressionVisual} />
     </>
   );
 }
