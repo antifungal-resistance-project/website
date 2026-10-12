@@ -6,12 +6,9 @@ import { Logo } from "@/components/Logo";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const links = [
-  { href: "#weather", label: "Resistance Weather" },
-  { href: "#mission", label: "Mission" },
-  { href: "#approach", label: "What we do" },
-  { href: "#science", label: "The science" },
-  { href: "#work", label: "Our work" },
-  { href: "/resistance", label: "Resistance 101" },
+  { href: "#building", label: "What we're building" },
+  { href: "#mission", label: "Why it matters" },
+  { href: "/resistance", label: "Learn the basics" },
   { href: "/resources", label: "Resources" },
 ];
 
